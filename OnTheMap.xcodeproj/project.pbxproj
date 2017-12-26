@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		CE8772CE1FF1E72A0055040C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8772CD1FF1E72A0055040C /* AppDelegate.swift */; };
-		CE8772D01FF1E72A0055040C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8772CF1FF1E72A0055040C /* ViewController.swift */; };
+		CE8772D01FF1E72A0055040C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8772CF1FF1E72A0055040C /* LoginViewController.swift */; };
 		CE8772D31FF1E72A0055040C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8772D11FF1E72A0055040C /* Main.storyboard */; };
 		CE8772D51FF1E72A0055040C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8772D41FF1E72A0055040C /* Assets.xcassets */; };
 		CE8772D81FF1E72A0055040C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8772D61FF1E72A0055040C /* LaunchScreen.storyboard */; };
+		CE87C9C31FF215AC000A9298 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C21FF215AC000A9298 /* MapViewController.swift */; };
+		CE87C9C51FF215BB000A9298 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C41FF215BB000A9298 /* TableViewController.swift */; };
+		CE87C9C71FF215E3000A9298 /* AddLocationFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C61FF215E3000A9298 /* AddLocationFormController.swift */; };
+		CE87C9C91FF215EF000A9298 /* AddLocationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C81FF215EF000A9298 /* AddLocationMapController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE8772CA1FF1E72A0055040C /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8772CD1FF1E72A0055040C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE8772CF1FF1E72A0055040C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE8772CF1FF1E72A0055040C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE8772D21FF1E72A0055040C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE8772D41FF1E72A0055040C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE8772D71FF1E72A0055040C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8772D91FF1E72A0055040C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE87C9C21FF215AC000A9298 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CE87C9C41FF215BB000A9298 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CE87C9C61FF215E3000A9298 /* AddLocationFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationFormController.swift; sourceTree = "<group>"; };
+		CE87C9C81FF215EF000A9298 /* AddLocationMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationMapController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,34 @@
 		CE8772CC1FF1E72A0055040C /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				CE87C9C11FF21594000A9298 /* Model */,
+				CE87C9C01FF21582000A9298 /* Controller */,
 				CE8772CD1FF1E72A0055040C /* AppDelegate.swift */,
-				CE8772CF1FF1E72A0055040C /* ViewController.swift */,
 				CE8772D11FF1E72A0055040C /* Main.storyboard */,
 				CE8772D41FF1E72A0055040C /* Assets.xcassets */,
 				CE8772D61FF1E72A0055040C /* LaunchScreen.storyboard */,
 				CE8772D91FF1E72A0055040C /* Info.plist */,
 			);
 			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		CE87C9C01FF21582000A9298 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE8772CF1FF1E72A0055040C /* LoginViewController.swift */,
+				CE87C9C21FF215AC000A9298 /* MapViewController.swift */,
+				CE87C9C41FF215BB000A9298 /* TableViewController.swift */,
+				CE87C9C61FF215E3000A9298 /* AddLocationFormController.swift */,
+				CE87C9C81FF215EF000A9298 /* AddLocationMapController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CE87C9C11FF21594000A9298 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8772D01FF1E72A0055040C /* ViewController.swift in Sources */,
+				CE87C9C71FF215E3000A9298 /* AddLocationFormController.swift in Sources */,
+				CE8772D01FF1E72A0055040C /* LoginViewController.swift in Sources */,
+				CE87C9C31FF215AC000A9298 /* MapViewController.swift in Sources */,
+				CE87C9C91FF215EF000A9298 /* AddLocationMapController.swift in Sources */,
 				CE8772CE1FF1E72A0055040C /* AppDelegate.swift in Sources */,
+				CE87C9C51FF215BB000A9298 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
