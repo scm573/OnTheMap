@@ -13,4 +13,8 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func logOut(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
