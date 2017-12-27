@@ -33,39 +33,48 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htp-Js-HkA" userLabel="Login Button">
                                 <rect key="frame" x="40" y="300" width="295" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="LOG IN"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="QVW-uJ-VSo" kind="show" id="hKp-Uj-0be"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0W-wb-CtG">
-                                <rect key="frame" x="40" y="370" width="295" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="XmO-ce-Pn3">
                                 <rect key="frame" x="40" y="60" width="295" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4yy-rC-JhW"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Don't have an account? Sign Up" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-RU-S4s" userLabel="Signup Text View">
+                                <rect key="frame" x="20" y="350" width="335" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3B0-Jq-ROQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Zy4-RU-S4s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="79g-m0-Wet"/>
+                            <constraint firstItem="Zy4-RU-S4s" firstAttribute="top" secondItem="Htp-Js-HkA" secondAttribute="bottom" constant="20" id="9VT-Mf-qMy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zy4-RU-S4s" secondAttribute="trailing" constant="20" id="9vH-zk-M2b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Htp-Js-HkA" secondAttribute="trailing" constant="40" id="Jyk-wK-yOA"/>
-                            <constraint firstItem="Htp-Js-HkA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Lhp-fi-42G"/>
                             <constraint firstItem="XmO-ce-Pn3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="S9s-rh-Ghs"/>
                             <constraint firstItem="Htp-Js-HkA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="W2M-gy-4nz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="csK-sc-7jX" secondAttribute="trailing" constant="40" id="WmX-bF-nhG"/>
-                            <constraint firstItem="c0W-wb-CtG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="aA3-cD-zcT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cbd-Co-ghF" secondAttribute="trailing" constant="40" id="c2B-60-UXv"/>
                             <constraint firstItem="cbd-Co-ghF" firstAttribute="top" secondItem="XmO-ce-Pn3" secondAttribute="bottom" constant="40" id="ikg-wA-yzF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c0W-wb-CtG" secondAttribute="trailing" constant="40" id="imh-3H-3pv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XmO-ce-Pn3" secondAttribute="trailing" constant="40" id="mK0-JF-gQy"/>
                             <constraint firstItem="csK-sc-7jX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="nRg-WV-C3Z"/>
                             <constraint firstItem="XmO-ce-Pn3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="pWZ-PP-snK"/>
-                            <constraint firstItem="c0W-wb-CtG" firstAttribute="top" secondItem="Htp-Js-HkA" secondAttribute="bottom" constant="40" id="sDd-th-Eez"/>
                             <constraint firstItem="Htp-Js-HkA" firstAttribute="top" secondItem="csK-sc-7jX" secondAttribute="bottom" constant="20" id="sGo-x4-NXw"/>
                             <constraint firstItem="cbd-Co-ghF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="sqi-2F-oDz"/>
                             <constraint firstItem="csK-sc-7jX" firstAttribute="top" secondItem="cbd-Co-ghF" secondAttribute="bottom" constant="20" id="tr6-1W-Vex"/>
@@ -73,6 +82,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="KoP-7s-hrL"/>
+                    <connections>
+                        <outlet property="signupTextView" destination="Zy4-RU-S4s" id="sbC-pk-31b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,12 +120,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_addpin" id="vIR-Ce-qFA">
+                            <barButtonItem image="icon_addpin" id="vIR-Ce-qFA" userLabel="Add Button">
                                 <connections>
                                     <segue destination="3eF-Qt-J77" kind="presentation" id="sro-5K-TIp"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="9K6-39-yQa"/>
+                            <barButtonItem image="icon_refresh" id="9K6-39-yQa" userLabel="Refresh Button"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -149,10 +161,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVZ-Xt-gM6" userLabel="Find Location Button">
-                                <rect key="frame" x="132" y="424" width="111" height="30"/>
+                                <rect key="frame" x="40" y="424" width="295" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="FIND LOCATION"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="O9f-ma-3b4" kind="show" id="Beb-RP-4xn"/>
+                                    <action selector="findLocation:" destination="ztv-gH-UgD" eventType="touchUpInside" id="OID-xA-HGA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,12 +181,13 @@
                             <constraint firstItem="4tg-3U-M4q" firstAttribute="top" secondItem="G7f-xS-vT8" secondAttribute="bottom" constant="20" id="AfN-dH-Pxl"/>
                             <constraint firstItem="2n3-sQ-Yh5" firstAttribute="top" secondItem="HXo-ht-pDv" secondAttribute="top" constant="60" id="G64-WX-hP4"/>
                             <constraint firstItem="4tg-3U-M4q" firstAttribute="leading" secondItem="HXo-ht-pDv" secondAttribute="leading" constant="40" id="Ldq-fJ-sOq"/>
-                            <constraint firstItem="dVZ-Xt-gM6" firstAttribute="centerX" secondItem="HXo-ht-pDv" secondAttribute="centerX" id="MwJ-tO-LGI"/>
                             <constraint firstItem="HXo-ht-pDv" firstAttribute="trailing" secondItem="2n3-sQ-Yh5" secondAttribute="trailing" constant="40" id="Tqh-Sb-UCS"/>
                             <constraint firstItem="G7f-xS-vT8" firstAttribute="leading" secondItem="HXo-ht-pDv" secondAttribute="leading" constant="40" id="Vdp-SO-bim"/>
                             <constraint firstItem="HXo-ht-pDv" firstAttribute="trailing" secondItem="G7f-xS-vT8" secondAttribute="trailing" constant="40" id="XoZ-L2-RRB"/>
+                            <constraint firstItem="HXo-ht-pDv" firstAttribute="trailing" secondItem="dVZ-Xt-gM6" secondAttribute="trailing" constant="40" id="k2v-bc-2XV"/>
                             <constraint firstItem="dVZ-Xt-gM6" firstAttribute="top" secondItem="4tg-3U-M4q" secondAttribute="bottom" constant="60" id="krl-gy-lSN"/>
                             <constraint firstItem="G7f-xS-vT8" firstAttribute="top" secondItem="2n3-sQ-Yh5" secondAttribute="bottom" constant="60" id="rSL-ev-zkj"/>
+                            <constraint firstItem="dVZ-Xt-gM6" firstAttribute="leading" secondItem="HXo-ht-pDv" secondAttribute="leading" constant="40" id="rkS-AF-fmK"/>
                             <constraint firstItem="HXo-ht-pDv" firstAttribute="trailing" secondItem="4tg-3U-M4q" secondAttribute="trailing" constant="40" id="yZr-wr-Hbu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HXo-ht-pDv"/>
@@ -179,15 +199,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="linkTextField" destination="4tg-3U-M4q" id="JKk-0x-c42"/>
+                        <outlet property="locationTextField" destination="G7f-xS-vT8" id="omO-EC-vAO"/>
+                        <segue destination="O9f-ma-3b4" kind="show" identifier="addLocation" id="SNb-lr-kVd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpr-zP-Cyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3548" y="133"/>
         </scene>
-        <!--Add Location Map View Controller-->
+        <!--Add Location-->
         <scene sceneID="lHd-MR-YOf">
             <objects>
-                <viewController id="O9f-ma-3b4" customClass="AddLocationMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Location" id="O9f-ma-3b4" customClass="AddLocationMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="opv-Xp-Lu7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,16 +220,36 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XVD-HY-gQw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="403"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNd-zv-KZG" userLabel="Finish Button">
+                                <rect key="frame" x="40" y="617" width="295" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="FINISH"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="finishAddingLocation:" destination="O9f-ma-3b4" eventType="touchUpInside" id="Vfm-HK-T5R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Jez-7j-e1W" firstAttribute="trailing" secondItem="XVD-HY-gQw" secondAttribute="trailing" id="IIf-Ot-OqP"/>
+                            <constraint firstItem="Jez-7j-e1W" firstAttribute="trailing" secondItem="TNd-zv-KZG" secondAttribute="trailing" constant="40" id="RPX-Hu-rcr"/>
                             <constraint firstItem="XVD-HY-gQw" firstAttribute="top" secondItem="Jez-7j-e1W" secondAttribute="top" id="WqE-Y8-UjV"/>
                             <constraint firstItem="Jez-7j-e1W" firstAttribute="bottom" secondItem="XVD-HY-gQw" secondAttribute="bottom" id="ixV-4u-lJr"/>
+                            <constraint firstItem="Jez-7j-e1W" firstAttribute="bottom" secondItem="TNd-zv-KZG" secondAttribute="bottom" constant="20" id="k3m-WY-UsP"/>
                             <constraint firstItem="XVD-HY-gQw" firstAttribute="leading" secondItem="Jez-7j-e1W" secondAttribute="leading" id="kF5-Zq-2PX"/>
+                            <constraint firstItem="TNd-zv-KZG" firstAttribute="leading" secondItem="Jez-7j-e1W" secondAttribute="leading" constant="40" id="q0O-m7-AdW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jez-7j-e1W"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="XVD-HY-gQw" id="zYV-gd-Cez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XK9-07-0xP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -238,12 +283,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_addpin" id="306-2P-cFp">
+                            <barButtonItem image="icon_addpin" id="306-2P-cFp" userLabel="Add Button">
                                 <connections>
                                     <segue destination="3eF-Qt-J77" kind="presentation" id="4NK-Lh-XL4"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="dgi-Rv-aWr"/>
+                            <barButtonItem image="icon_refresh" id="dgi-Rv-aWr" userLabel="Refresh Button"/>
                         </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
@@ -337,6 +382,6 @@
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sro-5K-TIp"/>
+        <segue reference="4NK-Lh-XL4"/>
     </inferredMetricsTieBreakers>
 </document>
