@@ -14,6 +14,19 @@ class TableViewController: UIViewController {
     }
     
     @IBAction func logOut(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        logOutUdacity { data, response, error in
+            if error != nil {
+                performUIUpdatesOnMain {
+                    let alert = UIAlertController(title: "Network error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                return
+            }
+            
+            performUIUpdatesOnMain {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }
