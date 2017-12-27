@@ -104,6 +104,54 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hjq-Qw-2Z8">
                                 <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="studentCell" rowHeight="80" id="JIQ-gk-gAz" customClass="StudentCell" customModule="OnTheMap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JIQ-gk-gAz" id="XIG-sl-cJ8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="Snx-my-y9R">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="79.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="WbB-ae-UuK"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LGE-M0-q5h">
+                                                    <rect key="frame" x="80" y="0.0" width="295" height="79.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K34-lx-dUe" userLabel="Name">
+                                                            <rect key="frame" x="0.0" y="0.0" width="295" height="40"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2OP-ZG-Rnm" userLabel="Link">
+                                                            <rect key="frame" x="0.0" y="40" width="295" height="39.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LGE-M0-q5h" secondAttribute="trailing" id="5vI-si-yJw"/>
+                                                <constraint firstItem="LGE-M0-q5h" firstAttribute="leading" secondItem="Snx-my-y9R" secondAttribute="trailing" id="HLu-NP-L26"/>
+                                                <constraint firstItem="LGE-M0-q5h" firstAttribute="top" secondItem="XIG-sl-cJ8" secondAttribute="top" id="QDp-T9-OBB"/>
+                                                <constraint firstAttribute="bottom" secondItem="Snx-my-y9R" secondAttribute="bottom" id="X5C-ef-DPA"/>
+                                                <constraint firstItem="Snx-my-y9R" firstAttribute="top" secondItem="XIG-sl-cJ8" secondAttribute="top" id="h3t-JI-f2P"/>
+                                                <constraint firstItem="Snx-my-y9R" firstAttribute="leading" secondItem="XIG-sl-cJ8" secondAttribute="leading" id="qEA-eV-XCO"/>
+                                                <constraint firstAttribute="bottom" secondItem="LGE-M0-q5h" secondAttribute="bottom" id="zcB-E9-cY0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="linkLabel" destination="2OP-ZG-Rnm" id="A3X-8v-8wM"/>
+                                            <outlet property="nameLabel" destination="K34-lx-dUe" id="u3j-3O-CoC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,10 +176,17 @@
                                     <segue destination="3eF-Qt-J77" kind="presentation" id="sro-5K-TIp"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="9K6-39-yQa" userLabel="Refresh Button"/>
+                            <barButtonItem image="icon_refresh" id="9K6-39-yQa" userLabel="Refresh Button">
+                                <connections>
+                                    <action selector="refresh:" destination="xAH-qg-tHk" id="SEH-sQ-oh4"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Hjq-Qw-2Z8" id="U1L-3Q-C6i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyo-t2-BdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,9 +346,16 @@
                                     <segue destination="3eF-Qt-J77" kind="presentation" id="4NK-Lh-XL4"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="dgi-Rv-aWr" userLabel="Refresh Button"/>
+                            <barButtonItem image="icon_refresh" id="dgi-Rv-aWr" userLabel="Refresh Button">
+                                <connections>
+                                    <action selector="refresh:" destination="mop-Wn-a6O" id="zey-xN-dd5"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="jOh-w4-6J6" id="2Gf-y6-7e7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPg-pL-O9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -380,11 +442,12 @@
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
         <image name="icon_world" width="52" height="67"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4NK-Lh-XL4"/>
+        <segue reference="sro-5K-TIp"/>
     </inferredMetricsTieBreakers>
 </document>

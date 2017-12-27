@@ -11,7 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let shared = UIApplication.shared.delegate as! AppDelegate
-    var udacityKey: String?
+    var key: String?
+    var user: UdacityPublicApiResponse.User?
+    var studentData: ParseApiResponse?
     
     var window: UIWindow?
 

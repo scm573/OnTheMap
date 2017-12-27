@@ -33,3 +33,11 @@ internal func logOutUdacity(completionHandler: @escaping((Data?, URLResponse?, E
     let task = session.dataTask(with: request, completionHandler: completionHandler)
     task.resume()
 }
+
+internal func requestUserInfo(completionHandler: @escaping((Data?, URLResponse?, Error?) -> Void)) {
+    guard let key = AppDelegate.shared.key else { return }
+    let request = URLRequest(url: URL(string: "https://www.udacity.com/api/users/\(key)")!)
+    let session = URLSession.shared
+    let task = session.dataTask(with: request, completionHandler: completionHandler)
+    task.resume()
+}

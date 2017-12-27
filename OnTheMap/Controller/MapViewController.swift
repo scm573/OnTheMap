@@ -6,11 +6,22 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController {
     
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if AppDelegate.shared.studentData == nil {
+            requestData()
+        }
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        requestData()
     }
     
     @IBAction func logOut(_ sender: Any) {
@@ -26,6 +37,52 @@ class MapViewController: UIViewController {
             
             performUIUpdatesOnMain {
                 self.dismiss(animated: true, completion: nil)
+                AppDelegate.shared.key = nil
+                AppDelegate.shared.studentData = nil
+            }
+        }
+    }
+}
+
+extension MapViewController {
+    func requestData() {
+        requestStudentData { data, response, error in
+            if error != nil {
+                performUIUpdatesOnMain {
+                    let alert = UIAlertController(title: "Network error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                return
+            }
+            
+            let decoder: JSONDecoder = JSONDecoder()
+            do {
+                let parseApiResponse: ParseApiResponse = try decoder.decode(ParseApiResponse.self, from: data!)
+                performUIUpdatesOnMain {
+                    AppDelegate.shared.studentData = parseApiResponse
+                    self.setMapPins()
+                }
+            } catch {
+                print("json convert failed in JSONDecoder", error.localizedDescription)
+            }
+        }
+    }
+    
+    func setMapPins() {
+        removeAllAnnotationsFrom(mapView)
+        
+        guard let studentLocations = AppDelegate.shared.studentData?.results else { return }
+        if studentLocations.isEmpty { return }
+        
+        if let lat = studentLocations[0].latitude, let lng = studentLocations[0].longitude {
+            adjustCameraOf(mapView, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng))
+        }
+        
+        for studentLocation in studentLocations {
+            if let lat = studentLocation.latitude, let lng = studentLocation.longitude, let firstName = studentLocation.firstName, let lastName = studentLocation.lastName, let link = studentLocation.mediaURL {
+                addStudentPinTo(mapView, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng),
+                                title: "\(firstName) \(lastName)", subtitle: link)
             }
         }
     }

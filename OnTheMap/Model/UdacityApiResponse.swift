@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UdacityApiResponse: Codable {
+struct UdacityAuthApiResponse: Codable {
     let status: Int?
     let error: String?
     let account: Account?
@@ -17,4 +17,11 @@ struct UdacityApiResponse: Codable {
     }
 }
 
-
+struct UdacityPublicApiResponse: Codable {
+    let user: User?
+    
+    struct User: Codable {
+        let first_name: String?
+        let last_name: String?
+    }
+}

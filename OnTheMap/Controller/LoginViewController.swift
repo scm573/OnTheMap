@@ -35,17 +35,36 @@ class LoginViewController: UIViewController {
             
             let decoder: JSONDecoder = JSONDecoder()
             do {
-                let udacityApiResponse: UdacityApiResponse = try decoder.decode(UdacityApiResponse.self, from: newData!)
+                let udacityAuthApiResponse: UdacityAuthApiResponse = try decoder.decode(UdacityAuthApiResponse.self, from: newData!)
                 
-                if udacityApiResponse.error == nil {
+                if udacityAuthApiResponse.error == nil {
                     performUIUpdatesOnMain {
-                        AppDelegate.shared.udacityKey = udacityApiResponse.account?.key
                         self.performSegue(withIdentifier: "loggedIn", sender: nil)
                         self.passwordTextField.text = ""
+                        AppDelegate.shared.key = udacityAuthApiResponse.account?.key
+                        
+                        requestUserInfo { data, response, error in
+                            if error != nil {
+                                return
+                            }
+                            let range = Range(5..<data!.count)
+                            let newData = data?.subdata(in: range)
+                            
+                            let decoder: JSONDecoder = JSONDecoder()
+                            do {
+                                let udacityPublicApiResponse: UdacityPublicApiResponse = try decoder.decode(UdacityPublicApiResponse.self, from: newData!)
+                                
+                                performUIUpdatesOnMain {
+                                    AppDelegate.shared.user = udacityPublicApiResponse.user
+                                }
+                            } catch {
+                                print("json convert failed in JSONDecoder", error.localizedDescription)
+                            }
+                        }
                     }
                 } else {
                     performUIUpdatesOnMain {
-                        let alert = UIAlertController(title: "Authentication failed", message: udacityApiResponse.error?.description, preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Authentication failed", message: udacityAuthApiResponse.error?.description, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                     }
