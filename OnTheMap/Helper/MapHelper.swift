@@ -38,21 +38,6 @@ internal func addPlacemarkPinTo(_ mapView: MKMapView, coordinate: CLLocationCoor
     }
 }
 
-internal func lookUpPlacemark(_ coordinate: CLLocationCoordinate2D, completionHandler: @escaping (CLPlacemark?) -> Void) {
-    let geocoder = CLGeocoder()
-    let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-    geocoder.reverseGeocodeLocation(location, completionHandler: {
-        (placemarks, error) in
-        
-        if error == nil {
-            let firstLocation = placemarks?[0]
-            completionHandler(firstLocation)
-        } else {
-            completionHandler(nil)
-        }
-    })
-}
-
 internal func removeAllAnnotationsFrom(_ mapView: MKMapView) {
     if mapView.annotations.isEmpty { return }
     for annotation in mapView.annotations {

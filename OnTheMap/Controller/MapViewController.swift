@@ -26,15 +26,6 @@ class MapViewController: UIViewController {
     
     @IBAction func logOut(_ sender: Any) {
         logOutUdacity { data, response, error in
-            if error != nil {
-                performUIUpdatesOnMain {
-                    let alert = UIAlertController(title: "Network error", message: error?.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-                return
-            }
-            
             performUIUpdatesOnMain {
                 self.dismiss(animated: true, completion: nil)
                 AppDelegate.shared.key = nil
@@ -47,15 +38,6 @@ class MapViewController: UIViewController {
 extension MapViewController {
     func requestData() {
         requestStudentData { data, response, error in
-            if error != nil {
-                performUIUpdatesOnMain {
-                    let alert = UIAlertController(title: "Network error", message: error?.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-                return
-            }
-            
             let decoder: JSONDecoder = JSONDecoder()
             do {
                 let parseApiResponse: ParseApiResponse = try decoder.decode(ParseApiResponse.self, from: data!)

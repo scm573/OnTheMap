@@ -32,15 +32,6 @@ class AddLocationMapViewController: UIViewController {
         guard let coordinate = coordinate else { return }
         postStudentData(mapString: placemark?.name ?? "", mediaURL: link ?? "", latitude: coordinate.latitude, longitude: coordinate.longitude) { data, response, error in
             
-            if error != nil {
-                performUIUpdatesOnMain {
-                    let alert = UIAlertController(title: "Network error", message: error?.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-                return
-            }
-            
             self.dismiss(animated: true, completion: nil)
         }
     }

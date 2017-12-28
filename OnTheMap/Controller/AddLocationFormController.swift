@@ -32,12 +32,10 @@ class AddLocationFormViewController: UIViewController {
     }
     
     @IBAction func findLocation(_ sender: Any) {
-        getCoordinate(addressString: locationTextField.text ?? "") { coordinate , error in
+        getCoordinateOf(addressString: locationTextField.text ?? "") { coordinate , error in
             
             if let error = error {
-                let alert = UIAlertController(title: "Location not found", message: error.description, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                presentAlert(title: "Location not found", message: error.description, preferredStyle: .alert, actionTitle: "OK")
                 return
             }
             
@@ -46,23 +44,4 @@ class AddLocationFormViewController: UIViewController {
         }
     }
     
-}
-
-extension AddLocationFormViewController {
-    func getCoordinate( addressString : String,
-                        completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
-            if error == nil {
-                if let placemark = placemarks?[0] {
-                    let location = placemark.location!
-                    
-                    completionHandler(location.coordinate, nil)
-                    return
-                }
-            }
-            
-            completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
-        }
-    }
 }

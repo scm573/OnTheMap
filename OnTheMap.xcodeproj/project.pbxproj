@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D9CC6CD50291250C57D5A56 /* Pods_OnTheMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169011E074D49B7F185E5E43 /* Pods_OnTheMap.framework */; };
 		CE3B5FE91FF33F840065FBC9 /* UdacityApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B5FE81FF33F840065FBC9 /* UdacityApiResponse.swift */; };
 		CE3B5FEC1FF358290065FBC9 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B5FEB1FF358290065FBC9 /* GCDBlackBox.swift */; };
 		CE3B5FEF1FF35CBC0065FBC9 /* UdacityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B5FEE1FF35CBC0065FBC9 /* UdacityApi.swift */; };
@@ -23,9 +24,14 @@
 		CE87C9C51FF215BB000A9298 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C41FF215BB000A9298 /* TableViewController.swift */; };
 		CE87C9C71FF215E3000A9298 /* AddLocationFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C61FF215E3000A9298 /* AddLocationFormController.swift */; };
 		CE87C9C91FF215EF000A9298 /* AddLocationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C81FF215EF000A9298 /* AddLocationMapController.swift */; };
+		CEB0125E1FF4CB0800A57E07 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0125D1FF4CB0800A57E07 /* AlertHelper.swift */; };
+		CEB012601FF4CEDF00A57E07 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0125F1FF4CEDF00A57E07 /* Geocoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		169011E074D49B7F185E5E43 /* Pods_OnTheMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9431DF28A248D3B95D482915 /* Pods-OnTheMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap.debug.xcconfig"; sourceTree = "<group>"; };
+		B8D086321FEB4586A53D203E /* Pods-OnTheMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap.release.xcconfig"; sourceTree = "<group>"; };
 		CE3B5FE81FF33F840065FBC9 /* UdacityApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityApiResponse.swift; sourceTree = "<group>"; };
 		CE3B5FEB1FF358290065FBC9 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		CE3B5FEE1FF35CBC0065FBC9 /* UdacityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityApi.swift; sourceTree = "<group>"; };
@@ -44,6 +50,8 @@
 		CE87C9C41FF215BB000A9298 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		CE87C9C61FF215E3000A9298 /* AddLocationFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationFormController.swift; sourceTree = "<group>"; };
 		CE87C9C81FF215EF000A9298 /* AddLocationMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationMapController.swift; sourceTree = "<group>"; };
+		CEB0125D1FF4CB0800A57E07 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		CEB0125F1FF4CEDF00A57E07 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +59,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D9CC6CD50291250C57D5A56 /* Pods_OnTheMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AC1B1D28E386008F923B244 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				169011E074D49B7F185E5E43 /* Pods_OnTheMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8445A32035EB519FDEF53195 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9431DF28A248D3B95D482915 /* Pods-OnTheMap.debug.xcconfig */,
+				B8D086321FEB4586A53D203E /* Pods-OnTheMap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CE3B5FEA1FF358060065FBC9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				CE3B5FEB1FF358290065FBC9 /* GCDBlackBox.swift */,
 				CE3B5FF41FF36A0F0065FBC9 /* MapHelper.swift */,
+				CEB0125D1FF4CB0800A57E07 /* AlertHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -71,6 +98,7 @@
 			children = (
 				CE3B5FEE1FF35CBC0065FBC9 /* UdacityApi.swift */,
 				CE3B5FF21FF362BB0065FBC9 /* ParseApi.swift */,
+				CEB0125F1FF4CEDF00A57E07 /* Geocoder.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -88,6 +116,8 @@
 			children = (
 				CE8772CC1FF1E72A0055040C /* OnTheMap */,
 				CE8772CB1FF1E72A0055040C /* Products */,
+				8445A32035EB519FDEF53195 /* Pods */,
+				5AC1B1D28E386008F923B244 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE8772DC1FF1E72A0055040C /* Build configuration list for PBXNativeTarget "OnTheMap" */;
 			buildPhases = (
+				0A9BD439D603F8EAB37A4226 /* [CP] Check Pods Manifest.lock */,
 				CE8772C61FF1E72A0055040C /* Sources */,
 				CE8772C71FF1E72A0055040C /* Frameworks */,
 				CE8772C81FF1E72A0055040C /* Resources */,
+				205FF1C6902EB2B50033C1FE /* [CP] Embed Pods Frameworks */,
+				DB9CCA8B9BF8F0B1EADAFB1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,6 +236,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A9BD439D603F8EAB37A4226 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OnTheMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		205FF1C6902EB2B50033C1FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB9CCA8B9BF8F0B1EADAFB1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE8772C61FF1E72A0055040C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -212,9 +299,11 @@
 				CE3B5FF11FF361140065FBC9 /* ParseApiResponse.swift in Sources */,
 				CE87C9C71FF215E3000A9298 /* AddLocationFormController.swift in Sources */,
 				CE8772D01FF1E72A0055040C /* LoginViewController.swift in Sources */,
+				CEB0125E1FF4CB0800A57E07 /* AlertHelper.swift in Sources */,
 				CE87C9C31FF215AC000A9298 /* MapViewController.swift in Sources */,
 				CE3B5FF31FF362BB0065FBC9 /* ParseApi.swift in Sources */,
 				CE3B5FF81FF3D6CF0065FBC9 /* StudentCell.swift in Sources */,
+				CEB012601FF4CEDF00A57E07 /* Geocoder.swift in Sources */,
 				CE87C9C91FF215EF000A9298 /* AddLocationMapController.swift in Sources */,
 				CE8772CE1FF1E72A0055040C /* AppDelegate.swift in Sources */,
 				CE3B5FF51FF36A0F0065FBC9 /* MapHelper.swift in Sources */,
@@ -355,6 +444,7 @@
 		};
 		CE8772DD1FF1E72A0055040C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9431DF28A248D3B95D482915 /* Pods-OnTheMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -370,6 +460,7 @@
 		};
 		CE8772DE1FF1E72A0055040C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D086321FEB4586A53D203E /* Pods-OnTheMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

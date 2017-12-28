@@ -21,21 +21,9 @@ class LoginViewController: UIViewController {
 
     @IBAction func logIn(_ sender: Any) {
         logInUdacity(emailTextField.text, password: passwordTextField.text) { data, response, error in
-            if error != nil {
-                performUIUpdatesOnMain {
-                    let alert = UIAlertController(title: "Network error", message: error?.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-                return
-            }
-            
-            let range = Range(5..<data!.count)
-            let newData = data?.subdata(in: range)
-            
             let decoder: JSONDecoder = JSONDecoder()
             do {
-                let udacityAuthApiResponse: UdacityAuthApiResponse = try decoder.decode(UdacityAuthApiResponse.self, from: newData!)
+                let udacityAuthApiResponse: UdacityAuthApiResponse = try decoder.decode(UdacityAuthApiResponse.self, from: data!)
                 
                 if udacityAuthApiResponse.error == nil {
                     performUIUpdatesOnMain {
@@ -44,15 +32,9 @@ class LoginViewController: UIViewController {
                         AppDelegate.shared.key = udacityAuthApiResponse.account?.key
                         
                         requestUserInfo { data, response, error in
-                            if error != nil {
-                                return
-                            }
-                            let range = Range(5..<data!.count)
-                            let newData = data?.subdata(in: range)
-                            
                             let decoder: JSONDecoder = JSONDecoder()
                             do {
-                                let udacityPublicApiResponse: UdacityPublicApiResponse = try decoder.decode(UdacityPublicApiResponse.self, from: newData!)
+                                let udacityPublicApiResponse: UdacityPublicApiResponse = try decoder.decode(UdacityPublicApiResponse.self, from: data!)
                                 
                                 performUIUpdatesOnMain {
                                     AppDelegate.shared.user = udacityPublicApiResponse.user
@@ -63,11 +45,7 @@ class LoginViewController: UIViewController {
                         }
                     }
                 } else {
-                    performUIUpdatesOnMain {
-                        let alert = UIAlertController(title: "Authentication failed", message: udacityAuthApiResponse.error?.description, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
+                    presentAlert(title: "Authentication failed", message: udacityAuthApiResponse.error?.description ?? "", preferredStyle: .alert, actionTitle: "Try again")
                 }
             } catch {
                 print("json convert failed in JSONDecoder", error.localizedDescription)
