@@ -69,4 +69,12 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         cell.linkLabel.text = "\(studentLocations[indexPath.row].mediaURL ?? "")"
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let studentLocations = AppDelegate.shared.studentData?.results else { return }
+        let url = URL(string: studentLocations[indexPath.row].mediaURL!)
+        if let url = url, UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
+    }
 }

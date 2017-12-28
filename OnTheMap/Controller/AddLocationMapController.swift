@@ -19,6 +19,7 @@ class AddLocationMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         
         if let coordinate = coordinate {
             addPlacemarkPinTo(mapView, coordinate: coordinate) { placemark in
@@ -34,5 +35,23 @@ class AddLocationMapViewController: UIViewController {
             
             self.dismiss(animated: true, completion: nil)
         }
+    }
+}
+
+extension AddLocationMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = .red
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        } else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
     }
 }
