@@ -26,6 +26,7 @@
 		CE87C9C91FF215EF000A9298 /* AddLocationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87C9C81FF215EF000A9298 /* AddLocationMapController.swift */; };
 		CEB0125E1FF4CB0800A57E07 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0125D1FF4CB0800A57E07 /* AlertHelper.swift */; };
 		CEB012601FF4CEDF00A57E07 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0125F1FF4CEDF00A57E07 /* Geocoder.swift */; };
+		CEDC5D461FFF62510006B4F4 /* ReachabilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC5D451FFF62510006B4F4 /* ReachabilityHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		CE87C9C81FF215EF000A9298 /* AddLocationMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationMapController.swift; sourceTree = "<group>"; };
 		CEB0125D1FF4CB0800A57E07 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		CEB0125F1FF4CEDF00A57E07 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		CEDC5D451FFF62510006B4F4 /* ReachabilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				CE3B5FEB1FF358290065FBC9 /* GCDBlackBox.swift */,
 				CE3B5FF41FF36A0F0065FBC9 /* MapHelper.swift */,
 				CEB0125D1FF4CB0800A57E07 /* AlertHelper.swift */,
+				CEDC5D451FFF62510006B4F4 /* ReachabilityHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -262,10 +265,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +304,7 @@
 				CE3B5FF11FF361140065FBC9 /* ParseApiResponse.swift in Sources */,
 				CE87C9C71FF215E3000A9298 /* AddLocationFormController.swift in Sources */,
 				CE8772D01FF1E72A0055040C /* LoginViewController.swift in Sources */,
+				CEDC5D461FFF62510006B4F4 /* ReachabilityHelper.swift in Sources */,
 				CEB0125E1FF4CB0800A57E07 /* AlertHelper.swift in Sources */,
 				CE87C9C31FF215AC000A9298 /* MapViewController.swift in Sources */,
 				CE3B5FF31FF362BB0065FBC9 /* ParseApi.swift in Sources */,

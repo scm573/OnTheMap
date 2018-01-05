@@ -40,7 +40,7 @@ class AddLocationFormViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func findLocation(_ sender: Any) {

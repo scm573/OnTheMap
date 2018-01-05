@@ -9,6 +9,11 @@ import Foundation
 import SVProgressHUD
 
 internal func logInUdacity(_ email: String?, password: String?, completionHandler: @escaping((Data?, URLResponse?, Error?) -> Void)) {
+    if !ReachabilityHelper.isNetworkConnected() {
+        presentAlert(title: "Network error", message: "No network connection.", preferredStyle: .alert, actionTitle: "Try again")
+        return
+    }
+    
     var request = URLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
     request.httpMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -17,6 +22,12 @@ internal func logInUdacity(_ email: String?, password: String?, completionHandle
     let session = URLSession.shared
     let task = session.dataTask(with: request) { data, response, error in
         SVProgressHUD.dismiss()
+        if let httpResponse = response as? HTTPURLResponse {
+            if 400...599 ~= httpResponse.statusCode {
+                presentAlert(title: "Server error", message: "Something exploded.", preferredStyle: .alert, actionTitle: "Try again")
+                return
+            }
+        }
         if error != nil {
             presentAlert(title: "Network error", message: error?.localizedDescription ?? "", preferredStyle: .alert, actionTitle: "Try again")
             return
@@ -31,6 +42,11 @@ internal func logInUdacity(_ email: String?, password: String?, completionHandle
 }
 
 internal func logOutUdacity(completionHandler: @escaping((Data?, URLResponse?, Error?) -> Void)) {
+    if !ReachabilityHelper.isNetworkConnected() {
+        presentAlert(title: "Network error", message: "No network connection.", preferredStyle: .alert, actionTitle: "Try again")
+        return
+    }
+    
     var request = URLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
     request.httpMethod = "DELETE"
     var xsrfCookie: HTTPCookie? = nil
@@ -44,6 +60,12 @@ internal func logOutUdacity(completionHandler: @escaping((Data?, URLResponse?, E
     let session = URLSession.shared
     let task = session.dataTask(with: request) { data, response, error in
         SVProgressHUD.dismiss()
+        if let httpResponse = response as? HTTPURLResponse {
+            if 400...599 ~= httpResponse.statusCode {
+                presentAlert(title: "Server error", message: "Something exploded.", preferredStyle: .alert, actionTitle: "Try again")
+                return
+            }
+        }
         if error != nil {
             presentAlert(title: "Network error", message: error?.localizedDescription ?? "", preferredStyle: .alert, actionTitle: "Try again")
             return
@@ -55,10 +77,15 @@ internal func logOutUdacity(completionHandler: @escaping((Data?, URLResponse?, E
 }
 
 internal func requestUserInfo(completionHandler: @escaping((Data?, URLResponse?, Error?) -> Void)) {
+    if !ReachabilityHelper.isNetworkConnected() { return }
+    
     guard let key = AppDelegate.shared.key else { return }
     let request = URLRequest(url: URL(string: "https://www.udacity.com/api/users/\(key)")!)
     let session = URLSession.shared
     let task = session.dataTask(with: request) { data, response, error in
+        if let httpResponse = response as? HTTPURLResponse {
+            if 400...599 ~= httpResponse.statusCode { return }
+        }
         if error != nil { return }
         let range = Range(5..<data!.count)
         let newData = data?.subdata(in: range)

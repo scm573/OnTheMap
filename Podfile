@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'OnTheMap' do
   pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+  pod 'ReachabilitySwift'
 end

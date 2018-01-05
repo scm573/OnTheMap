@@ -9,6 +9,11 @@ import CoreLocation
 import SVProgressHUD
 
 internal func getCoordinateOf(addressString : String, completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void) {
+    if !ReachabilityHelper.isNetworkConnected() {
+        presentAlert(title: "Network error", message: "No network connection.", preferredStyle: .alert, actionTitle: "Try again")
+        return
+    }
+    
     let geocoder = CLGeocoder()
     SVProgressHUD.show()
     
@@ -29,6 +34,11 @@ internal func getCoordinateOf(addressString : String, completionHandler: @escapi
 }
 
 internal func lookUpPlacemark(_ coordinate: CLLocationCoordinate2D, completionHandler: @escaping (CLPlacemark?) -> Void) {
+    if !ReachabilityHelper.isNetworkConnected() {
+        presentAlert(title: "Network error", message: "No network connection.", preferredStyle: .alert, actionTitle: "Try again")
+        return
+    }
+    
     let geocoder = CLGeocoder()
     let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
     SVProgressHUD.show()
